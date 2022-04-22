@@ -1,5 +1,7 @@
 package com.controllerDeEventos.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,10 @@ public class ServiceEvento {
 	
 	public Evento insert(Evento obj) {
 		return repositorio.save(obj);
+	}
+	
+	public List<Evento> findAll(){
+		List<Evento> listEvento = repositorio.findAll();
+		return listEvento;
 	}
 }
