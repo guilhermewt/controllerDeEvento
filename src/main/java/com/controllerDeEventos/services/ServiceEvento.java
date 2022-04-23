@@ -22,4 +22,9 @@ public class ServiceEvento {
 		List<Evento> listEvento = repositorio.findAll();
 		return listEvento;
 	}
+	
+	public Evento findByEvento(long id) {
+		return repositorio.findById(id);
+	}
+	
 }

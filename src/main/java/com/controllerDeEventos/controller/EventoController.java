@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,7 +33,7 @@ public class EventoController {
 		service.insert(evento);
 		return "redirect:/cadastrarEvento";
 	}
-	@RequestMapping(value="/eventos")
+	@RequestMapping(value="/eventos", method = RequestMethod.GET)
 	public ModelAndView listaDeEventos() {
 		ModelAndView mv = new ModelAndView("index");
 		List<Evento> allEventos = service.findAll();
@@ -40,4 +41,13 @@ public class EventoController {
 		return mv;
 		
 	}
+	
+	@RequestMapping(value="/{id}")
+	public ModelAndView detalhesEvento(@PathVariable("id") long id) {
+		Evento evento = service.findByEvento(id);
+		ModelAndView mv = new ModelAndView("evento/detalhesEvento");
+		mv.addObject("evento", evento);
+		return mv;
+	}
+	
 }
