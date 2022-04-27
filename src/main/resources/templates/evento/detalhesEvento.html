@@ -30,6 +30,24 @@
 			<p>data: <span th:text="${evento.data}"></span ></p>
 		</div>
 		
+		<hr>
+		
+		<form method="post">
+				
+				<div class="form-group">
+					<label for="nome">nome</label>
+					<input type="text" name="nome" class="form-control" >
+				</div>
+				
+				<div class="form-group">
+					<label for="rg">RG</label>
+					<input type="text" name="rg" class="form-control" >
+				</div>
+				
+				<button type="submit" class="btn btn-primary">salvar</button>
+				
+		</form>				
+		
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 
